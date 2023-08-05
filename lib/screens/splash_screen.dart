@@ -31,64 +31,62 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xff3941FF),
-              Color(0xff7269E3),
-              Color(0xff8350DB),
-              Color(0xff3941FF),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Center(
-            child: Stack(
-          children: [
-            const Positioned(
-              bottom: 130,
-              left: 170,
-              child: SvgRow(imagePath: 'assets/images/circle 1.svg'),
-            ),
-            const Positioned(
-              bottom: 90,
-              left: 130,
-              child: SvgRow(imagePath: 'assets/images/circle 2.svg'),
-            ),
-            const Positioned(
-              bottom: 50,
-              left: 90,
-              child: SvgRow(imagePath: 'assets/images/circle 3.svg'),
-            ),
-            const SvgRow(imagePath: 'assets/images/circle 4.svg'),
-            Positioned(
-              bottom: 120,
-              right: 60,
-              child: Row(
-                children: [
-                  SvgPicture.asset('assets/images/True.svg'),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const Text(
-                    'Routiner',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 50,
-                      fontFamily: 'Assistant',
-                    ),
-                  ),
+      body: Stack(
+        children: [
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xff3941FF),
+                  Color(0xff7269E3),
+                  Color(0xff8350DB),
+                  Color(0xff3941FF),
                 ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
-          ],
-        )),
+          ),
+          Container(
+            alignment: const Alignment(0, 0),
+            child: const SvgRow(imagePath: 'assets/images/circle 1.svg'),
+          ),
+          Container(
+            alignment: const Alignment(0, 0),
+            child: const SvgRow(imagePath: 'assets/images/circle 2.svg'),
+          ),
+          Container(
+            alignment: const Alignment(0, 0),
+            child: const SvgRow(imagePath: 'assets/images/circle 3.svg'),
+          ),
+          Container(
+            alignment: const Alignment(0, 0),
+            child: const SvgRow(imagePath: 'assets/images/circle 4.svg'),
+          ),
+         
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset('assets/images/True.svg'),
+                const SizedBox(
+                  width: 20,
+                ),
+                const Text(
+                  'Routiner',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
 }
-
-
