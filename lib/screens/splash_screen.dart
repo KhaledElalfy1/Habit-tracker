@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:habit_tracker/screens/on_boarding_screen.dart';
+
 import 'package:habit_tracker/widgets/custom_row_with_svg.dart';
+
+import 'on_boarding_screens.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return OnBoardingScreen();
+            return OnBoardingScreens();
           },
         ));
       },
