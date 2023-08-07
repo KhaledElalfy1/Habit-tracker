@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:habit_tracker/widgets/custom_chat_popup.dart';
-import 'package:habit_tracker/widgets/custom_login_container.dart';
+
 
 import '../widgets/custom_row_with_svg.dart';
 
@@ -113,53 +113,7 @@ class OnBoardingScreen1 extends StatelessWidget {
                 SizedBox(
                   height: 50,
                 ),
-                // Container(
-                //   width: 345,
-                //   height: 52,
-                //   decoration: BoxDecoration(
-                //     color: Colors.white,
-                //     borderRadius: BorderRadius.circular(40),
-                //   ),
-                //   child: const Row(
-                //       mainAxisAlignment: MainAxisAlignment.center,
-                //       children: [
-                //         Icon(Icons.exit_to_app),
-                //         Text(
-                //           'Continue with E-mail',
-                //           style: TextStyle(
-                //             fontSize: 15,
-                //           ),
-                //         ),
-                //       ]),
-                // ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                //     LoginContainer(
-                //         imagePath: 'assets/images/Apple.svg', text: 'Apple'),
-                //     LoginContainer(
-                //         imagePath: 'assets/images/Google.svg', text: 'Google'),
-                //     LoginContainer(
-                //         imagePath: 'assets/images/Facebook.svg',
-                //         text: 'Facebook'),
-                //   ],
-                // ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // const Text(
-                //   'By continuing you are agree terms of services & privecy policy',
-                //   style: TextStyle(
-                //     color: Colors.grey,
-                //     fontSize: 13,
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 40,
-                // ),
+                
               ],
             ),
           ),

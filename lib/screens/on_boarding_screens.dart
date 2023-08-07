@@ -41,7 +41,7 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print('Email');
+                  debugPrint('Email');
                 },
                 child: Container(
                   width: 345,

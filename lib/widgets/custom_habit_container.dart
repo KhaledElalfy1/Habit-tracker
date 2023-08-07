@@ -30,10 +30,11 @@ class HabitContainer extends StatelessWidget {
           ),
           CircularPercentIndicator(
             animation: true,
-            animationDuration:2000 ,
+            animationDuration: 2000,
             radius: 20,
             lineWidth: 3.0,
             percent: progress,
+            circularStrokeCap: CircularStrokeCap.round,
             center: Text(progressText),
             progressColor: const Color(0xff3941FF),
           ),

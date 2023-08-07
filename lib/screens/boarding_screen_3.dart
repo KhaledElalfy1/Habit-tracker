@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_login_container.dart';
 import '../widgets/custom_row_with_svg.dart';
 
 class OnBoardingScreen3 extends StatelessWidget {
@@ -51,19 +50,31 @@ class OnBoardingScreen3 extends StatelessWidget {
           ),
           Container(
             alignment: const Alignment(-.9, -.6),
-            child: Image.asset('assets/images/Avatar 04.png'),
+            child: Image.asset(
+              'assets/images/Avatar 04.png',
+              height: 63.02,
+            ),
           ),
           Container(
             alignment: const Alignment(-.25, -.2),
-            child: Image.asset('assets/images/Avatar 02.png'),
+            child: Image.asset(
+              'assets/images/Avatar 02.png',
+              height: 63.02,
+            ),
           ),
           Container(
             alignment: const Alignment(.3, -.8),
-            child: Image.asset('assets/images/Avatar 03.png'),
+            child: Image.asset(
+              'assets/images/Avatar 03.png',
+              height: 63.02,
+            ),
           ),
           Container(
             alignment: const Alignment(.7, -.35),
-            child: Image.asset('assets/images/Avatar 01.png'),
+            child: Image.asset(
+              'assets/images/Avatar 01.png',
+              height: 63.02,
+            ),
           ),
           Container(
             alignment: const Alignment(.05, -.5),
@@ -118,54 +129,6 @@ class OnBoardingScreen3 extends StatelessWidget {
                 SizedBox(
                   height: 50,
                 ),
-                // Container(
-                //   width: 345,
-                //   height: 52,
-                //   decoration: BoxDecoration(
-                //     color: Colors.white,
-                //     borderRadius: BorderRadius.circular(40),
-                //   ),
-                //   child: const Row(
-                //     mainAxisAlignment: MainAxisAlignment.center,
-                //     children: [
-                //       Icon(Icons.exit_to_app),
-                //       Text(
-                //         'Continue with E-mail',
-                //         style: TextStyle(
-                //           fontSize: 15,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                //     LoginContainer(
-                //         imagePath: 'assets/images/Apple.svg', text: 'Apple'),
-                //     LoginContainer(
-                //         imagePath: 'assets/images/Google.svg', text: 'Google'),
-                //     LoginContainer(
-                //         imagePath: 'assets/images/Facebook.svg',
-                //         text: 'Facebook'),
-                //   ],
-                // ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // const Text(
-                //   'By continuing you are agree terms of services & privecy policy',
-                //   style: TextStyle(
-                //     color: Colors.grey,
-                //     fontSize: 13,
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 40,
-                // ),
               ],
             ),
           ),
