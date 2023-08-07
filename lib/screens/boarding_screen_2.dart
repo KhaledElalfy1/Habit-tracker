@@ -46,9 +46,10 @@ class OnBoardingScreen2 extends StatelessWidget {
             child: const SvgRow(imagePath: 'assets/images/circle 4.svg'),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 100),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
@@ -57,6 +58,7 @@ class OnBoardingScreen2 extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+                const SizedBox(height: 5),
                 SvgPicture.asset('assets/images/Card.svg'),
                 const SizedBox(height: 5),
                 const Text(
@@ -113,54 +115,54 @@ class OnBoardingScreen2 extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                Container(
-                  width: 345,
-                  height: 52,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.exit_to_app),
-                      Text(
-                        'Continue with E-mail',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    LoginContainer(
-                        imagePath: 'assets/images/Apple.svg', text: 'Apple'),
-                    LoginContainer(
-                        imagePath: 'assets/images/Google.svg', text: 'Google'),
-                    LoginContainer(
-                        imagePath: 'assets/images/Facebook.svg',
-                        text: 'Facebook'),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  'By continuing you are agree terms of services & privecy policy',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 13,
-                  ),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
+                // Container(
+                //   width: 345,
+                //   height: 52,
+                //   decoration: BoxDecoration(
+                //     color: Colors.white,
+                //     borderRadius: BorderRadius.circular(40),
+                //   ),
+                //   child: const Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Icon(Icons.exit_to_app),
+                //       Text(
+                //         'Continue with E-mail',
+                //         style: TextStyle(
+                //           fontSize: 15,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Apple.svg', text: 'Apple'),
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Google.svg', text: 'Google'),
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Facebook.svg',
+                //         text: 'Facebook'),
+                //   ],
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Text(
+                //   'By continuing you are agree terms of services & privecy policy',
+                //   style: TextStyle(
+                //     color: Colors.grey,
+                //     fontSize: 13,
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
               ],
             ),
           ),

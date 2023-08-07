@@ -47,7 +47,10 @@ class OnBoardingScreen1 extends StatelessWidget {
           Positioned(
             top: 100,
             right: 30,
-            child: Image.asset('assets/images/avatar 3.png'),
+            child: Image.asset(
+              'assets/images/avatar 3.png',
+              height: 64,
+            ),
           ),
           const Positioned(
             top: 80,
@@ -57,7 +60,10 @@ class OnBoardingScreen1 extends StatelessWidget {
           Positioned(
             top: 200,
             left: 30,
-            child: Image.asset('assets/images/avatar 1.png'),
+            child: Image.asset(
+              'assets/images/avatar 1.png',
+              height: 80,
+            ),
           ),
           const Positioned(
             top: 200,
@@ -67,90 +73,93 @@ class OnBoardingScreen1 extends StatelessWidget {
           Positioned(
             bottom: 400,
             left: 120,
-            child: Image.asset('assets/images/avatar 2.png'),
+            child: Image.asset(
+              'assets/images/avatar 2.png',
+              height: 110,
+            ),
           ),
           const Positioned(
             bottom: 470,
             left: 190,
             child: ChatPopUp(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 170),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Create',
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                const Text(
+                Text(
                   'Good habits',
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                const Text(
+                Text(
                   'change your life by slowly  adding new healthy habits\nand sticking them',
                   style: TextStyle(color: Colors.grey),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 50,
                 ),
-                Container(
-                  width: 345,
-                  height: 52,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.exit_to_app),
-                        Text(
-                          'Continue with E-mail',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                      ]),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    LoginContainer(
-                        imagePath: 'assets/images/Apple.svg', text: 'Apple'),
-                    LoginContainer(
-                        imagePath: 'assets/images/Google.svg', text: 'Google'),
-                    LoginContainer(
-                        imagePath: 'assets/images/Facebook.svg',
-                        text: 'Facebook'),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  'By continuing you are agree terms of services & privecy policy',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 13,
-                  ),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
+                // Container(
+                //   width: 345,
+                //   height: 52,
+                //   decoration: BoxDecoration(
+                //     color: Colors.white,
+                //     borderRadius: BorderRadius.circular(40),
+                //   ),
+                //   child: const Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         Icon(Icons.exit_to_app),
+                //         Text(
+                //           'Continue with E-mail',
+                //           style: TextStyle(
+                //             fontSize: 15,
+                //           ),
+                //         ),
+                //       ]),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Apple.svg', text: 'Apple'),
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Google.svg', text: 'Google'),
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Facebook.svg',
+                //         text: 'Facebook'),
+                //   ],
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Text(
+                //   'By continuing you are agree terms of services & privecy policy',
+                //   style: TextStyle(
+                //     color: Colors.grey,
+                //     fontSize: 13,
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
               ],
             ),
           ),

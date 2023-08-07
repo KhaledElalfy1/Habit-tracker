@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/custom_login_container.dart';
 import '../widgets/custom_row_with_svg.dart';
@@ -89,84 +88,84 @@ class OnBoardingScreen3 extends StatelessWidget {
                   ]),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 170),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Stay together',
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                const Text(
+                Text(
                   'And strong',
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                const Text(
+                Text(
                   'Find frinds to discuss common topics.complete\nchallanges together.',
                   style: TextStyle(color: Colors.grey),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 50,
                 ),
-                Container(
-                  width: 345,
-                  height: 52,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.exit_to_app),
-                      Text(
-                        'Continue with E-mail',
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    LoginContainer(
-                        imagePath: 'assets/images/Apple.svg', text: 'Apple'),
-                    LoginContainer(
-                        imagePath: 'assets/images/Google.svg', text: 'Google'),
-                    LoginContainer(
-                        imagePath: 'assets/images/Facebook.svg',
-                        text: 'Facebook'),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  'By continuing you are agree terms of services & privecy policy',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 13,
-                  ),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
+                // Container(
+                //   width: 345,
+                //   height: 52,
+                //   decoration: BoxDecoration(
+                //     color: Colors.white,
+                //     borderRadius: BorderRadius.circular(40),
+                //   ),
+                //   child: const Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Icon(Icons.exit_to_app),
+                //       Text(
+                //         'Continue with E-mail',
+                //         style: TextStyle(
+                //           fontSize: 15,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Apple.svg', text: 'Apple'),
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Google.svg', text: 'Google'),
+                //     LoginContainer(
+                //         imagePath: 'assets/images/Facebook.svg',
+                //         text: 'Facebook'),
+                //   ],
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Text(
+                //   'By continuing you are agree terms of services & privecy policy',
+                //   style: TextStyle(
+                //     color: Colors.grey,
+                //     fontSize: 13,
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
               ],
             ),
           ),
