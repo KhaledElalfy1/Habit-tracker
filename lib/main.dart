@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/screens/splash_screen.dart';
+import 'package:habit_tracker/features/splash/presentation/view/splash_screen.dart';
 
 void main() {
   runApp(const HabitTracker());

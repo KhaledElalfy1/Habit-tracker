@@ -48,7 +48,7 @@ class ChallengeContainer extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 70,
+                          width: 65,
                         ),
                         Text(
                           '2 friendes joined',
@@ -70,7 +70,7 @@ class ChallengeContainer extends StatelessWidget {
                 animation: true,
                 animationDuration: 2000,
                 barRadius: const Radius.circular(16),
-                width: 320,
+                width: 311,
                 lineHeight: 6,
                 percent: .25,
                 backgroundColor: Colors.grey,

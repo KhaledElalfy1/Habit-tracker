@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_row_with_svg.dart';
+import 'package:habit_tracker/features/onboarding/presentation/view/widgets/custom_chat_popup.dart';
 
-class OnBoardingScreen3 extends StatelessWidget {
-  const OnBoardingScreen3({super.key});
 
+import '../../../../core/utilits/custom_row_with_svg.dart';
+
+class OnBoardingScreen1 extends StatelessWidget {
+  const OnBoardingScreen1({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,62 +44,44 @@ class OnBoardingScreen3 extends StatelessWidget {
             alignment: const Alignment(0, 0),
             child: const SvgRow(imagePath: 'assets/images/circle 4.svg'),
           ),
-          const OverflowBox(
-            alignment: Alignment(0, -.5),
-            maxWidth: double.infinity,
-            maxHeight: double.infinity,
-            child: SvgRow(imagePath: 'assets/images/wave.svg'),
-          ),
-          Container(
-            alignment: const Alignment(-.9, -.6),
+          Positioned(
+            top: 100,
+            right: 30,
             child: Image.asset(
-              'assets/images/Avatar 04.png',
-              height: 63.02,
-            ),
-          ),
-          Container(
-            alignment: const Alignment(-.25, -.2),
-            child: Image.asset(
-              'assets/images/Avatar 02.png',
-              height: 63.02,
-            ),
-          ),
-          Container(
-            alignment: const Alignment(.3, -.8),
-            child: Image.asset(
-              'assets/images/Avatar 03.png',
-              height: 63.02,
-            ),
-          ),
-          Container(
-            alignment: const Alignment(.7, -.35),
-            child: Image.asset(
-              'assets/images/Avatar 01.png',
-              height: 63.02,
-            ),
-          ),
-          Container(
-            alignment: const Alignment(.05, -.5),
-            child: Container(
+              'assets/images/avatar 3.png',
               height: 64,
-              width: 139,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'BEST STRICK DAY',
-                      style: TextStyle(color: Colors.grey, fontSize: 13),
-                    ),
-                    Text(
-                      '22',
-                      style: TextStyle(color: Colors.black, fontSize: 13),
-                    ),
-                  ]),
             ),
+          ),
+          const Positioned(
+            top: 80,
+            right: 60,
+            child: ChatPopUp(),
+          ),
+          Positioned(
+            top: 200,
+            left: 30,
+            child: Image.asset(
+              'assets/images/avatar 1.png',
+              height: 80,
+            ),
+          ),
+          const Positioned(
+            top: 200,
+            left: 85,
+            child: ChatPopUp(),
+          ),
+          Positioned(
+            bottom: 400,
+            left: 120,
+            child: Image.asset(
+              'assets/images/avatar 2.png',
+              height: 110,
+            ),
+          ),
+          const Positioned(
+            bottom: 470,
+            left: 190,
+            child: ChatPopUp(),
           ),
           const Padding(
             padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 170),
@@ -106,21 +90,21 @@ class OnBoardingScreen3 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Stay together',
+                  'Create',
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
                 Text(
-                  'And strong',
+                  'Good habits',
                   style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
                 Text(
-                  'Find frinds to discuss common topics.complete\nchallanges together.',
+                  'change your life by slowly  adding new healthy habits\nand sticking them',
                   style: TextStyle(color: Colors.grey),
                 ),
                 SizedBox(
@@ -129,6 +113,7 @@ class OnBoardingScreen3 extends StatelessWidget {
                 SizedBox(
                   height: 50,
                 ),
+                
               ],
             ),
           ),

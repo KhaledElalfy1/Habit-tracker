@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/widgets/custom_habit_container.dart';
+import 'package:habit_tracker/features/onboarding/presentation/view/widgets/custom_habit_container.dart';
 
-import '../widgets/custom_challenge_container.dart';
-import '../widgets/custom_row_with_svg.dart';
+import 'widgets/custom_challenge_container.dart';
+import '../../../../core/utilits/custom_row_with_svg.dart';
 
 class OnBoardingScreen2 extends StatelessWidget {
   const OnBoardingScreen2({super.key});

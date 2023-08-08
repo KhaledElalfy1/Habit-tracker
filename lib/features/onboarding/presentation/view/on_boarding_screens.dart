@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/screens/boarding_screen_1.dart';
-import 'package:habit_tracker/screens/boarding_screen_2.dart';
-import 'package:habit_tracker/screens/boarding_screen_3.dart';
+import 'package:habit_tracker/features/onboarding/presentation/view/boarding_screen_1.dart';
+import 'package:habit_tracker/features/onboarding/presentation/view/boarding_screen_2.dart';
+import 'package:habit_tracker/features/onboarding/presentation/view/boarding_screen_3.dart';
+import 'package:habit_tracker/features/signin/presentation/view/continue_with_email_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../widgets/custom_login_container.dart';
+import 'widgets/custom_login_container.dart';
 
 class OnBoardingScreens extends StatefulWidget {
   const OnBoardingScreens({super.key});
@@ -41,7 +42,11 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
             children: [
               GestureDetector(
                 onTap: () {
-                  debugPrint('Email');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>const ContinueWithEmail(),
+                      ));
                 },
                 child: Container(
                   width: 345,
@@ -66,7 +71,7 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
               const SizedBox(
                 height: 10,
               ),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   LoginContainer(
@@ -76,12 +81,13 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
                       imagePath: 'assets/images/Apple.svg',
                       text: 'Apple'),
                   LoginContainer(
-                     onTap: () {
+                      onTap: () {
                         debugPrint('google');
                       },
-                      imagePath: 'assets/images/Google.svg', text: 'Google'),
+                      imagePath: 'assets/images/Google.svg',
+                      text: 'Google'),
                   LoginContainer(
-                     onTap: () {
+                      onTap: () {
                         debugPrint('facebook');
                       },
                       imagePath: 'assets/images/Facebook.svg',
