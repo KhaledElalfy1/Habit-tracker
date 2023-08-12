@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
-class GenderContainer extends StatefulWidget {
-  const GenderContainer(
-      {super.key, required this.gender, required this.genderName});
-  final String gender, genderName;
+class ChooseHabitContainer extends StatefulWidget {
+  const ChooseHabitContainer({
+    super.key,
+    required this.icon,
+    required this.iconName,
+  });
+  final String icon, iconName;
 
   @override
-  State<GenderContainer> createState() => _GenderContainerState();
+  State<ChooseHabitContainer> createState() => _ChooseHabitContainerState();
 }
 
-class _GenderContainerState extends State<GenderContainer> {
+class _ChooseHabitContainerState extends State<ChooseHabitContainer> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -24,20 +27,21 @@ class _GenderContainerState extends State<GenderContainer> {
         width: 160.5,
         height: 134,
         decoration: BoxDecoration(
-          border:
-              Border.all(color: isSelected ? Colors.blue : Colors.transparent),
+          border: Border.all(
+            color: isSelected ? Colors.blue : Colors.transparent,
+          ),
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              widget.gender,
+              widget.icon,
               style: const TextStyle(fontSize: 40),
             ),
             Text(
-              widget.genderName,
+              widget.iconName,
               style: const TextStyle(fontSize: 20),
             ),
           ],

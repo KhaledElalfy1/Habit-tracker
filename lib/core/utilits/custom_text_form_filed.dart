@@ -5,11 +5,15 @@ class CustomTextFormFiled extends StatelessWidget {
       {super.key,
       required this.hitText,
       this.obscureText = false,
-      this.onChanged});
+      this.onChanged,
+      this.onTap,
+      this.hintStyle});
   final TextEditingController _textEditingController = TextEditingController();
   final String hitText;
   final bool obscureText;
   final void Function(String)? onChanged;
+  final void Function()? onTap;
+  final TextStyle? hintStyle;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -20,6 +24,7 @@ class CustomTextFormFiled extends StatelessWidget {
           return null;
         }
       },
+      onTap: onTap,
       onChanged: onChanged,
       controller: _textEditingController,
       obscureText: obscureText,
@@ -33,9 +38,15 @@ class CustomTextFormFiled extends StatelessWidget {
           ),
         ),
         hintText: hitText,
+        hintStyle: hintStyle,
         focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: Colors.green,
+          ),
+        ),
+        errorBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red,
           ),
         ),
       ),

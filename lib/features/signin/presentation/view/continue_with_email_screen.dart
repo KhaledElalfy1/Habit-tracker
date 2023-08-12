@@ -81,7 +81,14 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                     height: 85,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpViewOne(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       'Don\'t have account ?Let\'s create',
                       style: TextStyle(
@@ -92,14 +99,7 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                   ),
                   CustomButton(
                     text: 'Next',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpViewOne(),
-                        ),
-                      );
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/core/utilits/custom_button.dart';
-import 'package:habit_tracker/features/signup/presentation/view/widgets/gender_container.dart';
+import 'package:habit_tracker/features/signup/presentation/view/signup3.dart';
+import 'package:habit_tracker/features/signup/presentation/view/widgets/habit_container.dart';
 
 class SignUpViewTwo extends StatefulWidget {
   const SignUpViewTwo({super.key});
@@ -11,37 +12,76 @@ class SignUpViewTwo extends StatefulWidget {
 }
 
 class _SignUpViewTwoState extends State<SignUpViewTwo> {
+  bool isSelectedMale = true;
+  bool isSelectedFemale = false;
+  late String gender;
+  void _changeGender() {
+    setState(() {
+      isSelectedMale = !isSelectedMale;
+      isSelectedFemale = !isSelectedFemale;
+      if (isSelectedMale) {
+        gender = 'male';
+      }
+      if (isSelectedFemale) {
+        gender = 'female';
+      }
+      debugPrint(gender);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomAppBar(text: "Create Account"),
+          const CustomAppBar(text: "Create Account"),
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Choose your gender',
                   style: TextStyle(
                     fontSize: 25,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    GenderContainer(gender: '🤷', genderName: 'Male'),
-                    GenderContainer(gender: '🤷‍♀️', genderName: 'female'),
+                    GestureDetector(
+                      onTap: _changeGender,
+                      child: GenderContainer(
+                        icon: '🤷',
+                        iconName: 'Male',
+                        isSelected: isSelectedMale,
+                      ),
+                    ),
+                    GestureDetector(
+                        onTap: _changeGender,
+                        child: GenderContainer(
+                          icon: '🤷‍♀️',
+                          iconName: 'female',
+                          isSelected: isSelectedFemale,
+                        )),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
-                CustomButton(text: 'Next')
+                CustomButton(
+                  text: 'Next',
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const SignupViewThree();
+                      },
+                    ));
+                  },
+                )
               ],
             ),
           )
