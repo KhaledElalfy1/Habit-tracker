@@ -13,8 +13,24 @@ class SignUpViewOne extends StatefulWidget {
 
 class _SignUpViewOneState extends State<SignUpViewOne> {
   GlobalKey<FormState> fromKey = GlobalKey();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _surNameController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
+
   DateTime _currentDate = DateTime.now();
   late String name, surName;
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _surNameController.dispose();
+    _dateController.dispose();
+    super.dispose();
+  }
+
+  String _formatDate(DateTime date) {
+    return "${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year.toString()}";
+  }
+
   void _showPickerDate() {
     showDatePicker(
       context: context,
@@ -22,7 +38,10 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
       firstDate: DateTime(1960),
       lastDate: DateTime(2050),
     ).then((value) => setState(() {
-          _currentDate = value!;
+          if (value != null) {
+            _currentDate = value;
+            _dateController.text = _formatDate(_currentDate);
+          }
         }));
   }
 
@@ -49,6 +68,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                           'N A M E',
                         ),
                         CustomTextFormFiled(
+                          textEditingController: _nameController,
                           hitText: 'Enter your name',
                           onChanged: (p0) => name = p0,
                         ),
@@ -59,6 +79,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                           'SURNAME',
                         ),
                         CustomTextFormFiled(
+                          textEditingController: _surNameController,
                           hitText: 'Enter your sur name',
                           onChanged: (p0) => surName = p0,
                         ),
@@ -69,11 +90,9 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                           'BIRTHDATE',
                         ),
                         CustomTextFormFiled(
-                          hintStyle: const TextStyle(
-                            color: Colors.black,
-                          ),
-                          hitText:
-                              '${_currentDate.day} / ${_currentDate.month} / ${_currentDate.year}',
+                          readOnly: true,
+                          textEditingController: _dateController,
+                          hitText: 'dd/mm/yyyy',
                           onTap: _showPickerDate,
                         ),
                         const SizedBox(

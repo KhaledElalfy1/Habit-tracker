@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
-  CustomTextFormFiled(
+  const CustomTextFormFiled(
       {super.key,
       required this.hitText,
       this.obscureText = false,
       this.onChanged,
       this.onTap,
-      this.hintStyle});
-  final TextEditingController _textEditingController = TextEditingController();
+       required this.textEditingController,  this.readOnly=false});
+  final TextEditingController textEditingController;
   final String hitText;
   final bool obscureText;
   final void Function(String)? onChanged;
   final void Function()? onTap;
-  final TextStyle? hintStyle;
+  final bool readOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -24,21 +24,21 @@ class CustomTextFormFiled extends StatelessWidget {
           return null;
         }
       },
+      readOnly:readOnly ,
       onTap: onTap,
       onChanged: onChanged,
-      controller: _textEditingController,
+      controller: textEditingController,
       obscureText: obscureText,
       decoration: InputDecoration(
         suffix: IconButton(
           onPressed: () {
-            _textEditingController.clear();
+            textEditingController.clear();
           },
           icon: const Icon(
             Icons.cancel,
           ),
         ),
         hintText: hitText,
-        hintStyle: hintStyle,
         focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: Colors.green,

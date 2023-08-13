@@ -16,6 +16,15 @@ class ContinueWithEmail extends StatefulWidget {
 class _ContinueWithEmailState extends State<ContinueWithEmail> {
   GlobalKey<FormState> globalKey = GlobalKey();
   late String email, password;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +48,7 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                     height: 10,
                   ),
                   CustomTextFormFiled(
+                    textEditingController: _emailController,
                     onChanged: (p0) {
                       email = p0;
                     },
@@ -54,6 +64,7 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                     height: 10,
                   ),
                   CustomTextFormFiled(
+                    textEditingController: _passwordController,
                     onChanged: (p0) {
                       password = p0;
                     },
