@@ -75,7 +75,7 @@ class _SignupViewThreeState extends State<SignupViewThree> {
                         isSelected = !isSelected;
                       });
                     },
-                    child:  ChooseHabitContainer(
+                    child: ChooseHabitContainer(
                       icon: habit[index],
                       iconName: habitName[index],
                     )),

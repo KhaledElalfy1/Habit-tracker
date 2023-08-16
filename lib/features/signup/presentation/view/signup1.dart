@@ -12,7 +12,7 @@ class SignUpViewOne extends StatefulWidget {
 }
 
 class _SignUpViewOneState extends State<SignUpViewOne> {
-  GlobalKey<FormState> fromKey = GlobalKey();
+  GlobalKey<FormState> globalKey = GlobalKey();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _surNameController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
@@ -57,7 +57,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
               child: Column(
                 children: [
                   Form(
-                    key: fromKey,
+                    key: globalKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -100,14 +100,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                         ),
                         CustomButton(
                           text: 'Next',
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignUpViewTwo(),
-                              ),
-                            );
-                          },
+                          onTap: _navigationAfterValidation,
                         ),
                       ],
                     ),
@@ -119,5 +112,16 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
         ),
       ),
     );
+  }
+
+  void _navigationAfterValidation() {
+    if (globalKey.currentState!.validate()) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SignUpViewTwo(),
+        ),
+      );
+    }
   }
 }

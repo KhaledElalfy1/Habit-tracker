@@ -7,7 +7,8 @@ class CustomTextFormFiled extends StatelessWidget {
       this.obscureText = false,
       this.onChanged,
       this.onTap,
-       required this.textEditingController,  this.readOnly=false});
+      required this.textEditingController,
+      this.readOnly = false});
   final TextEditingController textEditingController;
   final String hitText;
   final bool obscureText;
@@ -16,37 +17,40 @@ class CustomTextFormFiled extends StatelessWidget {
   final bool readOnly;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'this filed is required';
-        } else {
-          return null;
-        }
-      },
-      readOnly:readOnly ,
-      onTap: onTap,
-      onChanged: onChanged,
-      controller: textEditingController,
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        suffix: IconButton(
-          onPressed: () {
-            textEditingController.clear();
-          },
-          icon: const Icon(
-            Icons.cancel,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0, top: 8),
+      child: TextFormField(
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'this filed is required';
+          } else {
+            return null;
+          }
+        },
+        readOnly: readOnly,
+        onTap: onTap,
+        onChanged: onChanged,
+        controller: textEditingController,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          suffix: IconButton(
+            onPressed: () {
+              textEditingController.clear();
+            },
+            icon: const Icon(
+              Icons.cancel,
+            ),
           ),
-        ),
-        hintText: hitText,
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.green,
+          hintText: hitText,
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.green,
+            ),
           ),
-        ),
-        errorBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red,
+          errorBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.red,
+            ),
           ),
         ),
       ),
