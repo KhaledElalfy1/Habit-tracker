@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/features/forget_password/presentation/view/forget_password_screen.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
@@ -122,14 +123,36 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
     );
   }
 
-  void _navigationAfterValidation() {
+  void _navigationAfterValidation() async {
     if (globalKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeView(),
-        ),
-      );
+      try {
+        UserCredential userCredential =
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+      } on FirebaseAuthException catch (e) {
+        _handelFirebaseErrors(e);
+      }
+
+      _homeNavigation();
+    }
+  }
+
+  void _homeNavigation() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomeView(),
+      ),
+    );
+  }
+
+  void _handelFirebaseErrors(FirebaseAuthException e) {
+    if (e.code == 'user-not-found') {
+      debugPrint('No user found for that email.');
+    } else if (e.code == 'wrong-password') {
+      debugPrint('Wrong password provided for that user.');
     }
   }
 }

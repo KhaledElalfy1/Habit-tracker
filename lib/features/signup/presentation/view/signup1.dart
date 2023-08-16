@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/core/utilits/custom_button.dart';
@@ -18,7 +19,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
   final TextEditingController _dateController = TextEditingController();
 
   DateTime _currentDate = DateTime.now();
-  late String name, surName;
+  late String email, password;
   @override
   void dispose() {
     _nameController.dispose();
@@ -69,8 +70,8 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                         ),
                         CustomTextFormFiled(
                           textEditingController: _nameController,
-                          hitText: 'Enter your name',
-                          onChanged: (p0) => name = p0,
+                          hitText: 'Enter your email',
+                          onChanged: (p0) => email = p0,
                         ),
                         const SizedBox(
                           height: 16,
@@ -80,8 +81,8 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                         ),
                         CustomTextFormFiled(
                           textEditingController: _surNameController,
-                          hitText: 'Enter your sur name',
-                          onChanged: (p0) => surName = p0,
+                          hitText: 'Enter your password',
+                          onChanged: (p0) => password = p0,
                         ),
                         const SizedBox(
                           height: 16,
@@ -114,14 +115,38 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
     );
   }
 
-  void _navigationAfterValidation() {
+  void _navigationAfterValidation() async {
     if (globalKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const SignUpViewTwo(),
-        ),
-      );
+      try {
+        UserCredential userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+      } on FirebaseAuthException catch (e) {
+        _handelFirebaseErrors(e);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
+
+      _gotoNextPage();
+    }
+  }
+
+  void _gotoNextPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignUpViewTwo(),
+      ),
+    );
+  }
+
+  void _handelFirebaseErrors(FirebaseAuthException e) {
+    if (e.code == 'weak-password') {
+      debugPrint('The password provided is too weak.');
+    } else if (e.code == 'email-already-in-use') {
+      debugPrint('The account already exists for that email.');
     }
   }
 }
