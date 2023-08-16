@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "68043613090",
+    "project_id": "habit-tracker-f29f9",
+    "storage_bucket": "habit-tracker-f29f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68043613090:android:ac6f9ba2de181c47eac8fb",
+        "android_client_info": {
+          "package_name": "com.example.habit_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68043613090-daq29pi7b7431l49s0tkabllsqodrfqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD34eVK-8V5xQESoV45zye9zUKTBADGX5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68043613090-daq29pi7b7431l49s0tkabllsqodrfqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

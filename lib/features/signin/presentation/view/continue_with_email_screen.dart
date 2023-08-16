@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/features/forget_password/presentation/view/forget_password_screen.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/core/utilits/custom_text_form_filed.dart';
+import 'package:habit_tracker/features/home/presentation/view/home_view.dart';
 import 'package:habit_tracker/features/signup/presentation/view/signup1.dart';
 
 import '../../../../core/utilits/custom_button.dart';
@@ -110,7 +111,7 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                   ),
                   CustomButton(
                     text: 'Next',
-                    onTap: () {},
+                    onTap: _navigationAfterValidation,
                   ),
                 ],
               ),
@@ -119,5 +120,16 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
         ),
       ),
     );
+  }
+
+  void _navigationAfterValidation() {
+    if (globalKey.currentState!.validate()) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeView(),
+        ),
+      );
+    }
   }
 }
