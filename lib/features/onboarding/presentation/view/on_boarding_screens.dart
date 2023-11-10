@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_tracker/features/onboarding/presentation/view/boarding_screen_1.dart';
 import 'package:habit_tracker/features/onboarding/presentation/view/boarding_screen_2.dart';
 import 'package:habit_tracker/features/onboarding/presentation/view/boarding_screen_3.dart';
 import 'package:habit_tracker/features/signin/presentation/view/continue_with_email_screen.dart';
+import 'package:habit_tracker/features/signin/presentation/view_model/sign_in_cubit/sign_in_cubit.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'widgets/custom_login_container.dart';
@@ -49,10 +51,14 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ContinueWithEmail(),
-                      ));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (context) => SignInCubit(),
+                        child: const ContinueWithEmail(),
+                      ),
+                    ),
+                  );
                 },
                 child: Container(
                   width: 345,
