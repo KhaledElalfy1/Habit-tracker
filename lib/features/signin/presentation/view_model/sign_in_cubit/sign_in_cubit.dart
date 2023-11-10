@@ -6,8 +6,8 @@ part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitial());
-  
-  void signin({required String email, required String password}) async {
+
+  void signIn({required String email, required String password}) async {
     emit(SignInInitial());
 
     try {
