@@ -17,6 +17,12 @@ class OnBoardingScreens extends StatefulWidget {
 class _OnBoardingScreensState extends State<OnBoardingScreens> {
   PageController controller = PageController();
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -45,7 +51,7 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>const ContinueWithEmail(),
+                        builder: (context) => const ContinueWithEmail(),
                       ));
                 },
                 child: Container(
@@ -75,32 +81,36 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   LoginContainer(
-                      onTap: () {
-                        debugPrint('apple');
-                      },
-                      imagePath: 'assets/images/Apple.svg',
-                      text: 'Apple'),
+                    onTap: () {
+                      debugPrint('apple');
+                      debugPrint("${controller.page}");
+                    },
+                    imagePath: 'assets/images/Apple.svg',
+                    text: 'Apple',
+                  ),
                   LoginContainer(
-                      onTap: () {
-                        debugPrint('google');
-                      },
-                      imagePath: 'assets/images/Google.svg',
-                      text: 'Google'),
+                    onTap: () {
+                      debugPrint('google');
+                    },
+                    imagePath: 'assets/images/Google.svg',
+                    text: 'Google',
+                  ),
                   LoginContainer(
-                      onTap: () {
-                        debugPrint('facebook');
-                      },
-                      imagePath: 'assets/images/Facebook.svg',
-                      text: 'Facebook'),
+                    onTap: () {
+                      debugPrint('facebook');
+                    },
+                    imagePath: 'assets/images/Facebook.svg',
+                    text: 'Facebook',
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
               const Text(
-                'By continuing you are agree terms of services & privecy policy',
+                'By continuing you are agree terms of services & privacy policy',
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Color(0xffAFB4FF),
                   fontSize: 13,
                 ),
               ),

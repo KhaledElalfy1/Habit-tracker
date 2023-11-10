@@ -45,8 +45,7 @@ class OnBoardingScreen2 extends StatelessWidget {
             child: const SvgRow(imagePath: 'assets/images/circle 4.svg'),
           ),
           const Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: 16.0, vertical: 100),
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 100),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,23 +68,23 @@ class OnBoardingScreen2 extends StatelessWidget {
                 SizedBox(height: 5),
                 HabitContainer(
                   progressText: '💧',
-                  coulmnText1: 'Drink the water',
-                  coulmnText2: '500/2000 ML',
+                  columnText1: 'Drink the water',
+                  columnText2: '500/2000 ML',
                   icon: Icons.add,
                   progress: 500 / 2000,
                 ),
                 SizedBox(height: 5),
                 HabitContainer(
                     progressText: '🚶‍♂️',
-                    coulmnText1: 'Walk',
-                    coulmnText2: '0/10000 STEPS',
+                    columnText1: 'Walk',
+                    columnText2: '0/10000 STEPS',
                     icon: Icons.add,
                     progress: .5),
                 SizedBox(height: 5),
                 HabitContainer(
                     progressText: '🧘‍♀️',
-                    coulmnText1: 'Meditate',
-                    coulmnText2: '30/30 MIN',
+                    columnText1: 'Meditate',
+                    columnText2: '30/30 MIN',
                     icon: Icons.check,
                     color: Colors.green,
                     progress: 1),
@@ -109,10 +108,7 @@ class OnBoardingScreen2 extends StatelessWidget {
                   style: TextStyle(color: Colors.grey),
                 ),
                 SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: 50,
+                  height: 80,
                 ),
               ],
             ),
@@ -122,4 +118,3 @@ class OnBoardingScreen2 extends StatelessWidget {
     );
   }
 }
-

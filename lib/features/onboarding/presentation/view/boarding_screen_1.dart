@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:habit_tracker/features/onboarding/presentation/view/widgets/custom_chat_popup.dart';
 
-
 import '../../../../core/utilits/custom_row_with_svg.dart';
 
 class OnBoardingScreen1 extends StatelessWidget {
@@ -108,10 +107,7 @@ class OnBoardingScreen1 extends StatelessWidget {
                   style: TextStyle(color: Colors.grey),
                 ),
                 SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: 50,
+                  height: 80,
                 ),
                 
               ],

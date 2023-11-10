@@ -5,12 +5,12 @@ class HabitContainer extends StatelessWidget {
   const HabitContainer(
       {super.key,
       required this.progressText,
-      required this.coulmnText1,
-      required this.coulmnText2,
+      required this.columnText1,
+      required this.columnText2,
       required this.icon,
       required this.progress,
       this.color = Colors.black});
-  final String progressText, coulmnText1, coulmnText2;
+  final String progressText, columnText1, columnText2;
   final IconData icon;
   final double progress;
   final Color color;
@@ -41,19 +41,23 @@ class HabitContainer extends StatelessWidget {
           const SizedBox(
             width: 16,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(coulmnText1),
-              Text(
-                coulmnText2,
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 13,
+          SizedBox(
+            width: 100,
+            height: 33,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(columnText1),
+                Text(
+                  columnText2,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 13,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(
             width: 120,

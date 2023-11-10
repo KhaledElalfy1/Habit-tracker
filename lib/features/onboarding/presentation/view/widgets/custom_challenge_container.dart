@@ -51,7 +51,7 @@ class ChallengeContainer extends StatelessWidget {
                           width: 65,
                         ),
                         Text(
-                          '2 friendes joined',
+                          '2 friends joined',
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey,
@@ -74,7 +74,7 @@ class ChallengeContainer extends StatelessWidget {
                 lineHeight: 6,
                 percent: .25,
                 backgroundColor: Colors.grey,
-                progressColor: const Color(0xff3941FF))
+                progressColor: const Color(0xff3941FF,),),
           ],
         ),
       ),

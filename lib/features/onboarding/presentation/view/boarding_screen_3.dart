@@ -120,14 +120,11 @@ class OnBoardingScreen3 extends StatelessWidget {
                       color: Colors.white),
                 ),
                 Text(
-                  'Find frinds to discuss common topics.complete\nchallanges together.',
+                  'Find friends to discuss common topics.complete\nchallenges together.',
                   style: TextStyle(color: Colors.grey),
                 ),
                 SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: 50,
+                  height: 80,
                 ),
               ],
             ),
