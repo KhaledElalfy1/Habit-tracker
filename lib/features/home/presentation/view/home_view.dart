@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,8 +6,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-
+    return Scaffold(
+      appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back))),
     );
   }
 }

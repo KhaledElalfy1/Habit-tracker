@@ -8,10 +8,10 @@ class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitial());
 
   void signIn({required String email, required String password}) async {
-    emit(SignInInitial());
+    emit(SignInLoading());
 
     try {
-      final credential = await FirebaseAuth.instance
+       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
       emit(SignInSuccess());

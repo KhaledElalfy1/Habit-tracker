@@ -50,7 +50,7 @@ class _OnBoardingScreensState extends State<OnBoardingScreens> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => BlocProvider(
