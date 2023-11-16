@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/core/utilits/custom_button.dart';
-import 'package:habit_tracker/features/signup/presentation/view/signup3.dart';
+import 'package:habit_tracker/features/signup/presentation/view/sign_up3.dart';
 import 'package:habit_tracker/features/signup/presentation/view/widgets/habit_container.dart';
 
 class SignUpViewTwo extends StatefulWidget {
-  const SignUpViewTwo({super.key});
+  const SignUpViewTwo(
+      {super.key,
+      required this.name,
+      required this.surname,
+      required this.email,
+      required this.password,
+      required this.date});
+  final String name, surname, email, password, date;
 
   @override
   State<SignUpViewTwo> createState() => _SignUpViewTwoState();
@@ -14,7 +21,7 @@ class SignUpViewTwo extends StatefulWidget {
 class _SignUpViewTwoState extends State<SignUpViewTwo> {
   bool isSelectedMale = true;
   bool isSelectedFemale = false;
-  late String gender;
+   String gender='male';
   void _changeGender() {
     setState(() {
       isSelectedMale = !isSelectedMale;
@@ -77,7 +84,14 @@ class _SignUpViewTwoState extends State<SignUpViewTwo> {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return const SignupViewThree();
+                        return SignUpViewThree(
+                          name: widget.name,
+                          surname: widget.surname,
+                          email: widget.email,
+                          password: widget.password,
+                          date: widget.date,
+                          gender: gender,
+                        );
                       },
                     ));
                   },

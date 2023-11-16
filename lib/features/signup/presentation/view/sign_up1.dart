@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/core/utilits/custom_button.dart';
 import 'package:habit_tracker/core/utilits/custom_text_form_filed.dart';
-import 'package:habit_tracker/features/signup/presentation/view/signup2.dart';
+import 'package:habit_tracker/features/signup/presentation/view/sign_up2.dart';
 
 class SignUpViewOne extends StatefulWidget {
   const SignUpViewOne({super.key});
@@ -17,14 +16,18 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _surNameController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   DateTime _currentDate = DateTime.now();
-  late String email, password;
+
   @override
   void dispose() {
     _nameController.dispose();
     _surNameController.dispose();
     _dateController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -41,6 +44,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
     ).then((value) => setState(() {
           if (value != null) {
             _currentDate = value;
+            debugPrint("$_currentDate");
             _dateController.text = _formatDate(_currentDate);
           }
         }));
@@ -70,8 +74,7 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                         ),
                         CustomTextFormFiled(
                           textEditingController: _nameController,
-                          hitText: 'Enter your email',
-                          onChanged: (p0) => email = p0,
+                          hitText: 'Enter your Name',
                         ),
                         const SizedBox(
                           height: 16,
@@ -81,11 +84,27 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                         ),
                         CustomTextFormFiled(
                           textEditingController: _surNameController,
-                          hitText: 'Enter your password',
-                          onChanged: (p0) => password = p0,
+                          hitText: 'Enter your surName',
                         ),
                         const SizedBox(
                           height: 16,
+                        ),
+                        const Text(
+                          'EMAIL',
+                        ),
+                        CustomTextFormFiled(
+                          textEditingController: _emailController,
+                          hitText: 'Enter your email',
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        const Text(
+                          'PASSWORD',
+                        ),
+                        CustomTextFormFiled(
+                          textEditingController: _passwordController,
+                          hitText: 'Enter your password',
                         ),
                         const Text(
                           'BIRTHDATE',
@@ -97,11 +116,29 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
                           onTap: _showPickerDate,
                         ),
                         const SizedBox(
-                          height: 70,
+                          height: 50,
                         ),
                         CustomButton(
                           text: 'Next',
-                          onTap: _navigationAfterValidation,
+                          onTap: () {
+                            if (globalKey.currentState!.validate()) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignUpViewTwo(
+                                    name: _nameController.text,
+                                    surname: _surNameController.text,
+                                    email: _emailController.text,
+                                    password: _passwordController.text,
+                                    date: _dateController.text,
+                                  ),
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 10,
                         ),
                       ],
                     ),
@@ -113,40 +150,5 @@ class _SignUpViewOneState extends State<SignUpViewOne> {
         ),
       ),
     );
-  }
-
-  void _navigationAfterValidation() async {
-    if (globalKey.currentState!.validate()) {
-      try {
-        UserCredential userCredential =
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email,
-          password: password,
-        );
-      } on FirebaseAuthException catch (e) {
-        _handelFirebaseErrors(e);
-      } catch (e) {
-        debugPrint(e.toString());
-      }
-
-      _gotoNextPage();
-    }
-  }
-
-  void _gotoNextPage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SignUpViewTwo(),
-      ),
-    );
-  }
-
-  void _handelFirebaseErrors(FirebaseAuthException e) {
-    if (e.code == 'weak-password') {
-      debugPrint('The password provided is too weak.');
-    } else if (e.code == 'email-already-in-use') {
-      debugPrint('The account already exists for that email.');
-    }
   }
 }

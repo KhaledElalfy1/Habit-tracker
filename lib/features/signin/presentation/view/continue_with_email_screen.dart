@@ -5,7 +5,7 @@ import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/core/utilits/custom_text_form_filed.dart';
 import 'package:habit_tracker/features/home/presentation/view/home_view.dart';
 import 'package:habit_tracker/features/signin/presentation/view_model/sign_in_cubit/sign_in_cubit.dart';
-import 'package:habit_tracker/features/signup/presentation/view/signup1.dart';
+import 'package:habit_tracker/features/signup/presentation/view/sign_up1.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import '../../../../core/utilits/custom_button.dart';
 

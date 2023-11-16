@@ -2,34 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/utilits/custom_appbar.dart';
 import 'package:habit_tracker/features/signup/presentation/view/widgets/choose_habit_container.dart';
 
-class SignupViewThree extends StatefulWidget {
-  const SignupViewThree({super.key});
-
+class SignUpViewThree extends StatefulWidget {
+  const SignUpViewThree({
+    super.key,
+    required this.name,
+    required this.surname,
+    required this.email,
+    required this.password,
+    required this.date,
+    required this.gender,
+  });
+  final String name, surname, email, password, date, gender;
   @override
-  State<SignupViewThree> createState() => _SignupViewThreeState();
+  State<SignUpViewThree> createState() => _SignUpViewThreeState();
 }
 
-class _SignupViewThreeState extends State<SignupViewThree> {
+class _SignUpViewThreeState extends State<SignUpViewThree> {
   bool isSelected = false;
-  List<String> habit = [
-    '💧',
-    '🏃‍♂️',
-    '📖',
-    '🧘‍♀️',
-    '💻',
-    '📙',
-    '🌿',
-    '😴',
-  ];
-  List<String> habitName = [
-    'drink water',
-    'run',
-    'read books',
-    'meditate',
-    'study',
-    'journal',
-    'natural',
-    'sleep'
+  
+  List habits = [
+    ['💧', 'drink water'],
+    ['🏃‍♂️', 'run'],
+    ['📖', 'read books'],
+    ['🧘‍♀️', 'meditate'],
+    ['💻', 'study'],
+    ['📙', 'journal'],
+    ['🌿', 'natural'],
+    ['😴', 'sleep'],
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,7 @@ class _SignupViewThreeState extends State<SignupViewThree> {
         const Padding(
           padding: EdgeInsets.only(left: 24.0),
           child: Text(
-            'Choose your frist habits',
+            'Choose your first habits',
             style: TextStyle(fontSize: 24),
           ),
         ),
@@ -61,7 +60,7 @@ class _SignupViewThreeState extends State<SignupViewThree> {
         ),
         Expanded(
           child: GridView.builder(
-            itemCount: habit.length,
+            itemCount: habits.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
@@ -76,8 +75,8 @@ class _SignupViewThreeState extends State<SignupViewThree> {
                       });
                     },
                     child: ChooseHabitContainer(
-                      icon: habit[index],
-                      iconName: habitName[index],
+                      icon: habits[index][0],
+                      iconName: habits[index][1],
                     )),
               );
             },
